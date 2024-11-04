@@ -1,4 +1,6 @@
 .env
-.env.sample
+*.env
+.env.*
 /.vscode
 /node_modules
+/dist

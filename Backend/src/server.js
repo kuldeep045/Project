@@ -8,6 +8,10 @@ dotenv.config({
 
 connectDB()
 .then(()=>{
+    app.on("error", (error) => {
+        console.log("CAN'T TALK TO DB", error);
+        throw error        
+    })
 
     app.listen(process.env.PORT, () => {
         console.log("Server is listening on port ", process.env.PORT || 3000)
@@ -15,5 +19,5 @@ connectDB()
 
 })
 .catch((err)=>{
-console.log("ERROR TALKING TO DB: ", err)
+    console.log("ERROR TALKING TO DB: ", err)
 })
